@@ -6,3 +6,4 @@ resources:
   - seed-users.yaml
   - deployment.yaml
   - service.yaml
+  - playit.yaml
