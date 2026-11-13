@@ -27,7 +27,7 @@ spec:
             - { name: VERSION, value: "1.21.9" }
             - { name: ONLINE_MODE, value: "FALSE" }
             - { name: MEMORY, value: "3G" }
-            - { name: DIFFICULTY, value: "easy" }
+            - { name: DIFFICULTY, value: "peaceful" }
             - { name: MODE, value: "survival" }
             - { name: MOTD, value: "Homelab Minecraft" }
             - { name: ENABLE_WHITELIST, value: "TRUE" }
