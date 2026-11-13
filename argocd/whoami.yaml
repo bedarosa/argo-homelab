@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/SEU-USUARIO/homelab.git
+    repoURL: https://github.com/bedarosa/argo-homelab.git
     targetRevision: main
     path: apps/whoami
   destination:
