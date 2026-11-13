@@ -32,8 +32,9 @@ spec:
             - { name: MOTD, value: "Homelab Minecraft" }
             - { name: ENABLE_WHITELIST, value: "TRUE" }
             - { name: ENFORCE_WHITELIST, value: "TRUE" }
-            - { name: WHITELIST, value: "ContadoLeo" }
-            - { name: OPS, value: "ContadoLeo" }
+            # conta offline (TLauncher): nick:uuid-offline evita o lookup no PlayerDB
+            - { name: WHITELIST, value: "ContadoLeo:1d3fdcad-6894-3331-92cb-8dfed7fcdeff" }
+            - { name: OPS, value: "ContadoLeo:1d3fdcad-6894-3331-92cb-8dfed7fcdeff" }
             - { name: TZ, value: "America/Sao_Paulo" }
           ports:
             - containerPort: 25565
