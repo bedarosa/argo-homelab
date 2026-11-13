@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: minecraft-seed-users
+data:
+  whitelist.json: |
+    [
+      { "uuid": "1d3fdcad-6894-3331-92cb-8dfed7fcdeff", "name": "ContadoLeo" }
+    ]
+  ops.json: |
+    [
+      { "uuid": "1d3fdcad-6894-3331-92cb-8dfed7fcdeff", "name": "ContadoLeo", "level": 4, "bypassesPlayerLimit": false }
+    ]

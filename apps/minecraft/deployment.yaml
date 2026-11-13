@@ -32,9 +32,12 @@ spec:
             - { name: MOTD, value: "Homelab Minecraft" }
             - { name: ENABLE_WHITELIST, value: "TRUE" }
             - { name: ENFORCE_WHITELIST, value: "TRUE" }
-            # conta offline (TLauncher): nick:uuid-offline evita o lookup no PlayerDB
-            - { name: WHITELIST, value: "ContadoLeo:1d3fdcad-6894-3331-92cb-8dfed7fcdeff" }
-            - { name: OPS, value: "ContadoLeo:1d3fdcad-6894-3331-92cb-8dfed7fcdeff" }
+            # conta offline (TLauncher): fornece whitelist/ops via arquivo (UUID offline),
+            # sem lookup no PlayerDB. Os arquivos vem do ConfigMap montado em /seed.
+            - { name: WHITELIST_FILE, value: "/seed/whitelist.json" }
+            - { name: OPS_FILE, value: "/seed/ops.json" }
+            - { name: OVERRIDE_WHITELIST, value: "TRUE" }
+            - { name: OVERRIDE_OPS, value: "TRUE" }
             - { name: TZ, value: "America/Sao_Paulo" }
           ports:
             - containerPort: 25565
@@ -45,6 +48,9 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
+            - name: seed-users
+              mountPath: /seed
+              readOnly: true
           startupProbe:
             tcpSocket: { port: 25565 }
             periodSeconds: 10
@@ -60,3 +66,6 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: minecraft-data
+        - name: seed-users
+          configMap:
+            name: minecraft-seed-users

@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: minecraft
 resources:
   - pvc.yaml
+  - seed-users.yaml
   - deployment.yaml
   - service.yaml
