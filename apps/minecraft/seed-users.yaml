@@ -5,7 +5,8 @@ metadata:
 data:
   whitelist.json: |
     [
-      { "uuid": "1d3fdcad-6894-3331-92cb-8dfed7fcdeff", "name": "ContadoLeo" }
+      { "uuid": "1d3fdcad-6894-3331-92cb-8dfed7fcdeff", "name": "ContadoLeo" },
+      { "uuid": "4b058bef-63fc-3cf3-a872-e69c499555c8", "name": "bruno" }
     ]
   ops.json: |
     [
