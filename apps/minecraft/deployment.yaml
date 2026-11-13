@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minecraft
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: minecraft
+  template:
+    metadata:
+      labels:
+        app: minecraft
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+      containers:
+        - name: minecraft
+          image: itzg/minecraft-server:java21
+          env:
+            - { name: EULA, value: "TRUE" }
+            - { name: TYPE, value: "PAPER" }
+            - { name: VERSION, value: "1.21.9" }
+            - { name: ONLINE_MODE, value: "FALSE" }
+            - { name: MEMORY, value: "3G" }
+            - { name: DIFFICULTY, value: "normal" }
+            - { name: MODE, value: "survival" }
+            - { name: MOTD, value: "Homelab Minecraft" }
+            - { name: ENABLE_WHITELIST, value: "TRUE" }
+            - { name: ENFORCE_WHITELIST, value: "TRUE" }
+            - { name: WHITELIST, value: "ContadoLeo" }
+            - { name: OPS, value: "ContadoLeo" }
+            - { name: TZ, value: "America/Sao_Paulo" }
+          ports:
+            - containerPort: 25565
+              name: minecraft
+          resources:
+            requests: { cpu: 500m, memory: 2Gi }
+            limits: { memory: 4Gi }
+          volumeMounts:
+            - name: data
+              mountPath: /data
+          startupProbe:
+            tcpSocket: { port: 25565 }
+            periodSeconds: 10
+            failureThreshold: 30
+          readinessProbe:
+            tcpSocket: { port: 25565 }
+            periodSeconds: 15
+          livenessProbe:
+            tcpSocket: { port: 25565 }
+            periodSeconds: 30
+            failureThreshold: 6
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: minecraft-data
