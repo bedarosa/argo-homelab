@@ -7,10 +7,12 @@ data:
     [
       { "uuid": "1d3fdcad-6894-3331-92cb-8dfed7fcdeff", "name": "ContadoLeo" },
       { "uuid": "c45e2347-a316-3f1e-9b0e-a92aaf58d3d2", "name": "Bruno" },
-      { "uuid": "61148855-0295-3aa1-9327-ae8a83443389", "name": "Bento" }
+      { "uuid": "61148855-0295-3aa1-9327-ae8a83443389", "name": "Bento" },
+      { "uuid": "89e1bd59-79e6-3895-bd3f-0f6a2e50390c", "name": "MaeRafa" }
     ]
   ops.json: |
     [
       { "uuid": "1d3fdcad-6894-3331-92cb-8dfed7fcdeff", "name": "ContadoLeo", "level": 4, "bypassesPlayerLimit": false },
-      { "uuid": "61148855-0295-3aa1-9327-ae8a83443389", "name": "Bento" }
+      { "uuid": "61148855-0295-3aa1-9327-ae8a83443389", "name": "Bento" },
+      { "uuid": "89e1bd59-79e6-3895-bd3f-0f6a2e50390c", "name": "MaeRafa", "level": 4, "bypassesPlayerLimit": false }
     ]
