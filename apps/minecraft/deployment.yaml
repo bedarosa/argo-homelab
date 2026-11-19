@@ -39,6 +39,11 @@ spec:
             - { name: OVERRIDE_WHITELIST, value: "TRUE" }
             - { name: OVERRIDE_OPS, value: "TRUE" }
             - { name: TZ, value: "America/Sao_Paulo" }
+            # Plugin de armas (server-side, sem mod no cliente). A imagem itzg baixa
+            # o jar do Modrinth no startup. Versao fixada p/ reproducibilidade (1.21.9/paper).
+            # Armas funcionam sem resource pack, mas as texturas/modelos so aparecem
+            # com o resource pack do QualityArmory habilitado (ver config em /data/plugins).
+            - { name: MODRINTH_PROJECTS, value: "qualityarmory:2.2.0" }
           ports:
             - containerPort: 25565
               name: minecraft
